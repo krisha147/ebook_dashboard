@@ -23,7 +23,7 @@
                 <!-- item-->
                 <a href="setting.php" class="dropdown-item notify-item">
                     <i class="mdi mdi-account-edit me-1"></i>
-                    <span>Settings</span>
+                    <span>Settings</span>s
                 </a>
 
                 <!-- item-->

@@ -11,6 +11,7 @@ if($bookresult->num_rows > 0){
     }
 }
 
+
 $usersql = "SELECT * FROM `usertable` ";
 
 $userresult=$con->query($usersql);
@@ -32,22 +33,7 @@ if($ratingresult->num_rows > 0){
 }
 
 
-$graphsql = "SELECT * FROM `graph` ORDER BY id  LIMIT 5 ";
 
-$graphresult=$con->query($graphsql);
-$graphdata=[];
-if($graphresult->num_rows > 0){
-    while($graphrow=$graphresult->fetch_assoc()){
-        // $date = date('Y-m-d', strtotime('-7 days'));
-
-        // if($graphrow['date'] > $date ){
-        //     array_push($graphdata,$graphrow);
-        // }
-        // array_push($graphdata,$graphrow);
-
-
-    }
-}
 
 $featuredbooksql = "SELECT * FROM `tbl_ebook` WHERE status='featured' LIMIT 5";
 $featuredbookres=$con->query($featuredbooksql);
@@ -72,5 +58,24 @@ if($adminresult->num_rows > 0){
 }
 
 
+$tbl_ebook_sql = "SELECT COUNT(id) FROM tbl_ebook ";
+$tbl_ebook_result = mysqli_query($con,$tbl_ebook_sql);
+$tbl_ebook_row = mysqli_fetch_array($tbl_ebook_result);
+$tbl_ebook_count = $tbl_ebook_row[0];
+
+$rating_sql = "SELECT COUNT(id) FROM rating ";
+$rating_result = mysqli_query($con,$rating_sql);
+$rating_row = mysqli_fetch_array($rating_result);
+$rating_count = $rating_row[0];
+
+$featured_ebook_sql = "SELECT COUNT(id) FROM tbl_ebook  WHERE status = 'featured'";
+$featured_ebook_result = mysqli_query($con,$featured_ebook_sql);
+$featured_ebook_row = mysqli_fetch_array($featured_ebook_result);
+$featured_ebook_count = $featured_ebook_row[0];
+
+$usertable_sql = "SELECT COUNT(id) FROM usertable ";
+$usertable_result = mysqli_query($con,$usertable_sql);
+$usertable_row = mysqli_fetch_array($usertable_result);
+$usertable_count = $usertable_row[0];
 
 ?>

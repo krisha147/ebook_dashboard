@@ -87,7 +87,7 @@ $pos = 1;
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body">
-                <form action="controller/add.php " enctype="multipart/form-data" method='POST'  class="needs-validation" novalidate>
+                <form action="crud/add.php " enctype="multipart/form-data" method='POST'  class="needs-validation" novalidate>
                     <div class="form-floating mb-3">
                         <input required type="text" name='title' class="form-control" id="floatingInput" placeholder="Book Title" />
                         <label for="floatingInput">Book Title </label>
@@ -136,7 +136,7 @@ $(document).ready(function(){
     function delete_book(id){
        if( confirm("Are you sure you want to delete permanently???")==true){
            $.ajax({
-               url:"controller/delete.php",
+               url:"crud/delete.php",
                method:'POST',
                data:{
                    'id':id,
@@ -168,7 +168,7 @@ $(document).ready(function(){
 //  alert(id+' = '+stat);
 
 $.ajax({
-               url:"controller/update.php",
+               url:"crud/update.php",
                method:'POST',
                data:{
                    'id':id,
